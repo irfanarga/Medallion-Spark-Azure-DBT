@@ -1,0 +1,26 @@
+version: 2
+
+models:
+  - name: dim_customer
+    columns:
+      - name: customer_sk
+        description: "The surrogate key for the customer"
+        tests:
+          - not_null
+          - unique
+      - name: customerid
+        description: "The natural key for the customer"
+        tests:
+          - not_null
+      - name: fullname
+        description: "The full name of the customer"
+      - name: addressid
+        description: "The natural key for the address"
+        tests:
+          - not_null
+      - name: addresstype
+      - name: addressline1
+      - name: city
+      - name: stateprovince
+      - name: countryregion
+      - name: postalcode

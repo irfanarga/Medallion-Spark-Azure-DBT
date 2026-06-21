@@ -1,0 +1,35 @@
+version: 2
+
+models:
+  - name: dim_product
+    description: "Tabel dimensi produk yang memuat informasi master data produk dan modelnya."
+    columns:
+      - name: product_sk
+        description: "The surrogate key for the product"
+        tests:
+          - not_null
+          - unique
+      - name: product_name
+        description: "The name of the product"
+        tests:
+          - not_null
+      - name: standardcost
+        description: "The standard cost of the product"
+      - name: listprice
+        description: "The list price of the product"
+      - name: size
+        description: "The size of the product"
+      - name: weight
+        description: "The weight of the product"
+      - name: model
+        description: "The model name of the product"
+      - name: catalogdescription
+        description: "The catalog description of the product"
+      - name: sellstartdate
+        description: "The sell start date of the product"
+        tests:
+          - not_null 
+      - name: sellenddate
+        description: "The sell end date of the product"
+      - name: discontinueddate
+        description: "The discontinued date of the product"

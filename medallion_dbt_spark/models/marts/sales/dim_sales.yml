@@ -1,0 +1,96 @@
+version: 2
+
+models:
+  - name: dim_sales
+    description: "Tabel fakta/dimensi yang memuat rincian item penjualan (Sales Order Detail) yang digabungkan dengan informasi Header dan Produk."
+    columns:
+      # --- Kategori Kolom: Sales Order Detail ---
+      - name: salesorderid
+        description: "ID nota penjualan (Header)."
+        tests:
+          - not_null
+      - name: salesorderdetailid
+        description: "Kunci unik (Primary Key) tingkat baris item."
+        tests:
+          - not_null
+          - unique
+      - name: orderqty
+        description: "Jumlah kuantitas produk yang dipesan."
+      - name: productid
+        description: "ID produk yang dipesan."
+        tests:
+          - not_null
+      - name: unitprice
+        description: "Harga satuan produk."
+      - name: unitpricediscount
+        description: "Nilai diskon harga satuan."
+      - name: linetotal
+        description: "Total nilai harga per baris."
+
+      # --- Kategori Kolom: Product ---
+      - name: name
+        description: "Nama produk."
+      - name: productnumber
+        description: "Nomor kode unik produk."
+      - name: color
+        description: "Warna produk."
+      - name: standardcost
+        description: "Biaya standar produk."
+      - name: listprice
+        description: "Harga jual eceran resmi."
+      - name: size
+        description: "Ukuran dimensi produk."
+      - name: weight
+        description: "Berat produk."
+      - name: sellstartdate
+        description: "Tanggal mulai produk dipasarkan."
+      - name: sellenddate
+        description: "Tanggal berakhirnya pemasaran produk."
+      - name: discontinueddate
+        description: "Tanggal produk dihentikan."
+      - name: thumbnailphoto
+        description: "Data foto/gambar produk ukuran kecil."
+      - name: thumbnailphotofilename
+        description: "Nama file dari foto thumbnail produk."
+
+      # --- Kategori Kolom: Sales Order Header ---
+      - name: revisionnumber
+        description: "Nomor revisi perubahan nota."
+      - name: orderdate
+        description: "Tanggal pemesanan."
+      - name: duedate
+        description: "Tanggal jatuh tempo."
+      - name: shipdate
+        description: "Tanggal pengiriman dilakukan."
+      - name: status
+        description: "Status terkini nota penjualan."
+      - name: onlineorderflag
+        description: "Penanda transaksi online (1) atau offline (0)."
+      - name: salesordernumber
+        description: "Nomor invoice resmi."
+      - name: purchaseordernumber
+        description: "Nomor Purchase Order (PO)."
+      - name: accountnumber
+        description: "Nomor akun customer."
+      - name: customerid
+        description: "ID pelanggan yang membeli."
+        tests:
+          - not_null
+      - name: shiptoaddressid
+        description: "ID alamat tujuan pengiriman."
+      - name: billtoaddressid
+        description: "ID alamat penagihan."
+      - name: shipmethod
+        description: "metode pengiriman."
+      - name: creditcardapprovalcode
+        description: "Kode persetujuan kartu kredit."
+      - name: subtotal
+        description: "Total nilai belanja sebelum pajak dan logistik."
+      - name: taxamt
+        description: "Jumlah nominal nilai pajak."
+      - name: freight
+        description: "Biaya ongkos kirim."
+      - name: totaldue
+        description: "Total tagihan akhir (SubTotal + TaxAmt + Freight)."
+      - name: comment
+        description: "Catatan tambahan terkait transaksi."
