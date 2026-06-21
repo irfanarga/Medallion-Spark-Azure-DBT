@@ -1,0 +1,5 @@
+echo ".venv/" >> .gitignore
+echo "logs/" >> .gitignore
+echo "target/" >> .gitignore
+
+.venv/
