@@ -1,10 +1,11 @@
-{% snapshot salesorderheader_snapshot %}
+{% snapshot salesorderheader %}
 
 {{
     config(
         file_format = "delta",
         location_root = "abfss://silver@medallionsanew.dfs.core.windows.net/",
         target_schema = 'snapshots',
+        target_catalog = 'medallion_spark_databricks',
         invalidate_hard_deletes = True,
         unique_key = "SalesOrderID",
         strategy = 'check',
